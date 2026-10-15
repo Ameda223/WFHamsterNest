@@ -4,6 +4,7 @@
   "release_url": "https://github.com/Ameda223/WFHamsterNest/releases/latest",
   "base_url": "https://raw.githubusercontent.com/Ameda223/WFHamsterNest/main/",
   "files": [
-    
+    { "src": "luascripts/relic_data.lua", "dest": "luascripts/relic_data.lua" },
+    { "src": "luascripts/relic_utils.lua", "dest": "luascripts/relic_utils.lua" }
   ]
 }
