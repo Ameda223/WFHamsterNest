@@ -1,0 +1,47 @@
+name: Fetch Warframe Data
+
+on:
+  schedule:
+    # 每 12 小时运行一次：UTC 00:00 和 12:00
+    # 对应北京时间 08:00 和 20:00
+    - cron: "0 0,12 * * *"
+  workflow_dispatch:       # 允许手动触发（调试用）
+
+concurrency:
+  group: fetch-wf-data
+  cancel-in-progress: false
+
+permissions:
+  contents: write          # 需要写权限才能 commit & push
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: pip install requests
+
+      - name: Fetch data
+        run: python scripts/fetch_wf_data.py
+
+      - name: Commit & push
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add data/
+
+          if git diff --cached --quiet; then
+            echo "无变化，跳过提交"
+            exit 0
+          fi
+
+          git commit -m "chore(data): update WF data $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git push
