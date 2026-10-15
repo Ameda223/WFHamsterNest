@@ -16,17 +16,21 @@ permissions:
 
 jobs:
   fetch:
-    runs-on: ubuntu-latest
+    # 固定 Ubuntu 版本，避免 latest 自动迁移带来的不确定性
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
 
     steps:
-      - uses: actions/checkout@v4
+      # 升级到 v5，支持 Node.js 24
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      # 升级到 v6，支持 Node.js 24
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
 
-      - run: pip install requests
+      - name: Install deps
+        run: pip install requests
 
       - name: Fetch data
         run: python scripts/fetch_wf_data.py
