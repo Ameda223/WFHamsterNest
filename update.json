@@ -7,7 +7,7 @@
     {
       "src": "luascripts/relic_data.lua",
       "dest": "luascripts/relic_data.lua",
-      "sha256": "5bcdec736db9bbccac6312266a180a90b065fb014d11cc9cc2d7553af681166a"
+      "sha256": "1b9130ee47bfe860521704fe8927f51a899842dcb5029bbfcce245c6b99c9dc0"
     },
     {
       "src": "luascripts/relic_utils.lua",
