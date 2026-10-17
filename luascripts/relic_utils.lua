@@ -89,7 +89,7 @@ local DUCAT_EXCEPTIONS = {
   -- 先锋中的银部件, 以后应该 65
   ["Caliban Prime"]         = { ["Neuroptics Blueprint"] = 100 },
   ["Sevagoth Prime"]        = { ["Blueprint"] = 45 },
-  ["Bronco Prime"]          = { Barrel = 25 }, -- 10.15已经改为25了
+  ["Bronco Prime"]          = { Barrel = 25 }, --已经改为25了
 }
 
 -- ============================================================

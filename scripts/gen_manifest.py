@@ -5,6 +5,8 @@ from pathlib import Path
 
 # 需要计算哈希的目录
 TARGET_DIR = Path("luascripts")
+# 仓库根目录（用于计算相对路径）
+ROOT_DIR = Path(".")
 # update.json 文件路径
 MANIFEST_PATH = Path("update.json")
 
@@ -25,23 +27,23 @@ def main():
     hashes = {}
     for file in TARGET_DIR.rglob("*"):
         if file.is_file():
-            rel_path = file.relative_to(TARGET_DIR).as_posix()
+            # 相对于仓库根目录计算路径，保留 luascripts/ 前缀
+            rel_path = file.relative_to(ROOT_DIR).as_posix()
             hashes[rel_path] = sha256_file(file)
 
     # 2. 读取或初始化 update.json 结构
-    if MANIFEST_PATH.exists():
-        with open(MANIFEST_PATH, "r", encoding="utf-8") as f:
-            manifest = json.load(f)
-    else:
-        return
-        # # 如果文件不存在，创建一个基础结构
+    if not MANIFEST_PATH.exists():
+        # 如果文件不存在，创建一个基础结构
         # manifest = {
         #     "version": "1.0.0",
         #     "data_version": 1,
-        #     "base_url": "https://raw.githubusercontent.com/Ameda223/WFHamsterNest/main/luascripts",
+        #     "base_url": "https://raw.githubusercontent.com/Ameda223/WFHamsterNest/main/",
         #     "files": []
         # }
+        return
 
+    with open(MANIFEST_PATH, "r", encoding="utf-8") as f:
+        manifest = json.load(f)
     # 3. 重建 files 列表，填入新的 sha256
     new_files = []
     for rel_path, hash_val in hashes.items():
@@ -51,6 +53,8 @@ def main():
             "sha256": hash_val
         })
     
+    # 按路径排序，保持输出稳定（避免每次提交顺序错乱）
+    new_files.sort(key=lambda x: x["src"])
     manifest["files"] = new_files
 
     # 4. 写回 update.json
