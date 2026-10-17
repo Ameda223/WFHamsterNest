@@ -68,7 +68,6 @@ local DUCAT_EXCEPTIONS = {
   ["Saryn Prime"]           = { ["Neuroptics Blueprint"] = 45 },
   ["Soma Prime"]            = { Blueprint = 15 },
   ["Mesa Prime"]            = { ["Systems Blueprint"] = 100 },
-  ["Bronco Prime"]          = { Barrel = 45 },
   ["Gauss Prime"]           = { Blueprint = 25 },
   ["Panthera Prime"]        = { Receiver = 100 },
   ["Fang Prime"]            = { Blueprint = 15 },
@@ -90,6 +89,7 @@ local DUCAT_EXCEPTIONS = {
   -- 先锋中的银部件, 以后应该 65
   ["Caliban Prime"]         = { ["Neuroptics Blueprint"] = 100 },
   ["Sevagoth Prime"]        = { ["Blueprint"] = 45 },
+  ["Bronco Prime"]          = { Barrel = 25 }, -- 10.15已经改为25了
 }
 
 -- ============================================================
