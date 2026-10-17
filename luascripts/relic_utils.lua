@@ -89,6 +89,7 @@ local DUCAT_EXCEPTIONS = {
   ["Reaper Prime"]          = { Blueprint = 15 },
   -- 先锋中的银部件, 以后应该 65
   ["Caliban Prime"]         = { ["Neuroptics Blueprint"] = 100 },
+  ["Sevagoth Prime"]        = { ["Blueprint"] = 45 },
 }
 
 -- ============================================================
