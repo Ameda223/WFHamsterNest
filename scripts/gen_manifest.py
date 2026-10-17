@@ -56,6 +56,7 @@ def main():
     # 按路径排序，保持输出稳定（避免每次提交顺序错乱）
     new_files.sort(key=lambda x: x["src"])
     manifest["files"] = new_files
+    manifest["data_version"] += 1
 
     # 4. 写回 update.json
     with open(MANIFEST_PATH, "w", encoding="utf-8") as f:
