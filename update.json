@@ -1,6 +1,6 @@
 {
   "version": "0.2.0",
-  "data_version": 2,
+  "data_version": 3,
   "release_url": "https://github.com/Ameda223/WFHamsterNest/releases/latest",
   "base_url": "https://raw.githubusercontent.com/Ameda223/WFHamsterNest/main/",
   "files": [
@@ -12,7 +12,7 @@
     {
       "src": "luascripts/relic_utils.lua",
       "dest": "luascripts/relic_utils.lua",
-      "sha256": "8e147802f1b17a6202aa81e7b423443bb97d034d6275e8f9093a270b98b374e1"
+      "sha256": "cae115f4453f3b12b460bae497860145b13e4ef740d00d98adadee210242415d"
     }
   ]
 }
