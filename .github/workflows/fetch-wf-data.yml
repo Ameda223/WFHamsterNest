@@ -2,9 +2,9 @@ name: Fetch Warframe Data
 
 on:
   schedule:
-    # 每 12 小时运行一次：UTC 00:00 和 12:00
-    # 对应北京时间 08:00 和 20:00
-    - cron: "0 0,12 * * *"
+    # 每 8 小时运行一次：UTC 00:00, 08:00, 16:00
+    # 对应北京时间 08:00, 16:00, 次日 00:00
+    - cron: "0 0,8,16 * * *"
   workflow_dispatch:       # 允许手动触发（调试用）
 
 concurrency:
@@ -40,7 +40,8 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add data/
+          # 必须同时提交数据文件夹和修复状态文件
+          git add data/ scripts/repair_state.json
 
           if git diff --cached --quiet; then
             echo "无变化，跳过提交"
