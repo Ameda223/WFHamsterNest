@@ -1,8 +1,8 @@
 # scripts/fetch_wf_data.py
 """
 抓取 Warframe 紫卡统计与 Prime 价格数据。
-- 每 12 小时运行一次（Actions 触发）
-- 文件名精确到日：riven_YYYY-MM-DD.json / prime_YYYY-MM-DD.json
+- 每 8 小时运行一次（每天 3 次，Actions 触发）
+- 文件名精确到日：riven_YYYYMMDD.json / prime_YYYYMMDD.json
 - 同一天多次运行会覆盖当天文件
 - 自动清理超过 60 天的旧文件
 - 自动修复历史 Prime 数据的 today_vol 异常
