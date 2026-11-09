@@ -91,6 +91,7 @@ local DUCAT_EXCEPTIONS = {
   ["Sevagoth Prime"]        = { ["Blueprint"] = 45 },
   ["Protea Prime"]          = { ["Chassis Blueprint"] = 100 },
   ["Bronco Prime"]          = { Barrel = 25 }, --已经改为25了
+  ["Caliban Prime"]        = { ["Blueprint"] = 45 }, 
 }
 
 -- ============================================================
