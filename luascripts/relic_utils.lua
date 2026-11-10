@@ -59,7 +59,18 @@ local RelicData = require("luascripts/relic_data")
 --- 由于稀有度分布导致杜卡德价格例外的情况
 ---@type table<string, table<string, number>>
 local DUCAT_EXCEPTIONS = {
-  Forma                     = { Blueprint = 0 },
+  ["Riven Sliver"]          = { [""] = 0 },
+  ["Kuva"]                  = { [""] = 0 },
+  ["Ayatan Amber Star"]     = { [""] = 0 },
+  ["Xata"]                  = { [""] = 0 },
+  ["Lohk"]                  = { [""] = 0 },
+  ["Vome"]                  = { [""] = 0 },
+  ["Jahu"]                  = { [""] = 0 },
+  ["Fass"]                  = { [""] = 0 },
+  ["Ris"]                   = { [""] = 0 },
+  ["Netra"]                 = { [""] = 0 },
+  ["Khra"]                  = { [""] = 0 },
+  ["Forma"]                 = { Blueprint = 0 },
   ["Khora Prime"]           = { Blueprint = 65 },
   ["Akstiletto Prime"]      = { Receiver = 45 },
   ["Knell Prime"]           = { Receiver = 45 },
@@ -73,25 +84,16 @@ local DUCAT_EXCEPTIONS = {
   ["Fang Prime"]            = { Blueprint = 15 },
   ["Limbo Prime"]           = { ["Neuroptics Blueprint"] = 100 },
   ["Exilus Weapon Adapter"] = { Blueprint = 0 },
-  ["Riven Sliver"]          = { [""] = 0 },
-  ["Kuva"]                  = { [""] = 0 },
-  ["Ayatan Amber Star"]     = { [""] = 0 },
-  ["Xata"]                  = { [""] = 0 },
-  ["Lohk"]                  = { [""] = 0 },
-  ["Vome"]                  = { [""] = 0 },
-  ["Jahu"]                  = { [""] = 0 },
-  ["Fass"]                  = { [""] = 0 },
-  ["Ris"]                   = { [""] = 0 },
-  ["Netra"]                 = { [""] = 0 },
-  ["Khra"]                  = { [""] = 0 },
   -- 新增遇到的
   ["Reaper Prime"]          = { Blueprint = 15 },
   -- 先锋中的银部件, 以后应该 65
-  ["Caliban Prime"]         = { ["Neuroptics Blueprint"] = 100 },
   ["Sevagoth Prime"]        = { ["Blueprint"] = 45 },
   ["Protea Prime"]          = { ["Chassis Blueprint"] = 100 },
   ["Bronco Prime"]          = { Barrel = 25 }, --已经改为25了
-  ["Caliban Prime"]        = { ["Blueprint"] = 45 }, 
+  ["Caliban Prime"]        = 
+  { 
+    ["Blueprint"] = 45, ["Neuroptics Blueprint"] = 100
+  }, 
 }
 
 -- ============================================================
